@@ -1,7 +1,7 @@
 # Exam from first semester of Machine Learning (Grade: A)
 
-*The exam assignment can be seen in the Exam-flow.Rmd*
-   *The files layout changes a bit when not opend in R-Studio*
+*The exam assignment can be seen in the Exam-flow.Rmd*  
+  *The files layout changes a bit when not opend in R-Studio*
 *The data can be seen in the audit2.csv file*  
 *The exam questions can be seen in the pdf*
 
