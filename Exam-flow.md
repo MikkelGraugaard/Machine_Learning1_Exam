@@ -1,6 +1,6 @@
 ---
 title: "Exam 2020 Machine Learning 1"
-author: 'Flow-ID: 50'
+author: 'Mikkel Nymark Graugaard'
 date: "12/12/2020"
 output: pdf_document
 ---
@@ -80,13 +80,11 @@ The split is 1163 in the training set and 387 in the test set.
 
 Here one can the the share of Risk 0 and 1 for training and test set. Since I stratisfied, then they are roughly the same. 
 
-train:                0             1 
-                  0.5674979       0.4325021 
 
-test:                0             1 
-                  0.5348837       0.4651163 
-
-
+|           | 0              | 1            |
+| :---       |    :----:   |          ---: |
+| train     | 0.5674979       | 0.4325021    |
+| test       | 0.5348837        | 0.4651163   |
 
 
 
@@ -118,10 +116,13 @@ cm_reg.train
 
 Confusion Matrix and Statistics
 
-          Reference
-Prediction   0   1
-         0 553 185
-         1 107 318
+
+|           | Reference 0    | Reference 1   |
+| :---       |    :----:   |          ---: |
+|Prediction 0    | 553       | 185      |
+|Prediction 1     | 107      | 318       |
+
+
                                          
                Accuracy : 0.7489         
                  95% CI : (0.723, 0.7736)
@@ -130,7 +131,7 @@ Prediction   0   1
                                          
                   Kappa : 0.4789         
                                          
- Mcnemar's Test P-Value : 6.603e-06      
+     Mcnemar's Test P-Value : 6.603e-06      
                                          
             Sensitivity : 0.6322         
             Specificity : 0.8379         
@@ -138,7 +139,7 @@ Prediction   0   1
          Neg Pred Value : 0.7493         
              Prevalence : 0.4325         
          Detection Rate : 0.2734         
-   Detection Prevalence : 0.3654         
+     Detection Prevalence : 0.3654         
       Balanced Accuracy : 0.7350         
                                          
        'Positive' Class : 1  
@@ -169,10 +170,11 @@ cm_reg
 ```
 Confusion Matrix and Statistics
 
-          Reference
-Prediction   0   1
-         0 179  73
-         1  28 107
+|           | Reference 0    | Reference 1   |
+| :---       |    :----:   |          ---: |
+|Prediction 0    | 179      | 73      |
+|Prediction 1     | 28     | 107       |
+
                                           
                Accuracy : 0.739           
                  95% CI : (0.6922, 0.7821)
@@ -181,7 +183,7 @@ Prediction   0   1
                                           
                   Kappa : 0.4668          
                                           
- Mcnemar's Test P-Value : 1.197e-05       
+    Mcnemar's Test P-Value : 1.197e-05       
                                           
             Sensitivity : 0.5944          
             Specificity : 0.8647          
@@ -189,20 +191,22 @@ Prediction   0   1
          Neg Pred Value : 0.7103          
              Prevalence : 0.4651          
          Detection Rate : 0.2765          
-   Detection Prevalence : 0.3488          
-      Balanced Accuracy : 0.7296          
+      Detection Prevalence : 0.3488          
+       Balanced Accuracy : 0.7296          
                                           
        'Positive' Class : 1  
 
 
 The same way of interpreting this output.
 
-*Train:*  Accuracy :  0.7489  
+*Train:*   
+Accuracy :  0.7489  
 Sensitivity : 0.6322         
 Specificity : 0.8379 
 
 
-*Test:*  Accuracy : 0.739
+*Test:*    
+Accuracy : 0.739
 Sensitivity : 0.5944          
 Specificity : 0.8647 
 
@@ -235,10 +239,12 @@ cm_reg.train.interact <- confusionMatrix(factor(ifelse(logist.pred.interact > 0.
                           factor(train$Risk), positive = "1") #Classifying the predictions
 cm_reg.train.interact
 ```
-         Reference
-Prediction   0   1
-         0 476 120
-         1 184 383
+         
+         
+|           | Reference 0    | Reference 1   |
+| :---       |    :----:   |          ---: |
+|Prediction 0    | 476       | 120     |
+|Prediction 1     | 184      | 383       |
                                           
                Accuracy : 0.7386          
                  95% CI : (0.7123, 0.7637)
@@ -247,7 +253,7 @@ Prediction   0   1
                                           
                   Kappa : 0.4754          
                                           
- Mcnemar's Test P-Value : 0.0003023       
+    Mcnemar's Test P-Value : 0.0003023       
                                           
             Sensitivity : 0.7614          
             Specificity : 0.7212          
@@ -255,8 +261,8 @@ Prediction   0   1
          Neg Pred Value : 0.7987          
              Prevalence : 0.4325          
          Detection Rate : 0.3293          
-   Detection Prevalence : 0.4875          
-      Balanced Accuracy : 0.7413          
+     Detection Prevalence : 0.4875          
+        Balanced Accuracy : 0.7413          
                                           
        'Positive' Class : 1  
 
@@ -273,7 +279,8 @@ It looks like the two-way interactions didn't do good for the model, and the new
 
 One would have expected the two-way interactions to perform better on the training data. as
 In-sample minimization favors complex models.
-Therefor it is a good idea when picking a model to base it on AIC equivalent to picking the best-predicting model in large samples, with the low risk gives good risk property in theory, but not good model selection. As this model have a lower variance, but for some bias. 
+Therefor it is a good idea when picking a model to base it on AIC equivalent to picking the best-predicting model in large samples,  
+with the low risk gives good risk property in theory, but not good model selection. As this model have a lower variance, but for some bias. 
 
 ```{r eval=TRUE}
 summary(logist.fit)$aic
@@ -283,7 +290,8 @@ summary(logist.fit.interact)$aic
     logist.fit:             1285.915
     logist.fit.interact:    22236.54
 
-Here it can be seen that the complex model with all two-way interactions gets a heavy penalty for all the extra predictors that are included in the model. And thus in terms of the AIC criteria one should pick the simpler model as well. 
+Here it can be seen that the complex model with all two-way interactions gets a heavy penalty for all the extra predictors that are included in the model.  
+And thus in terms of the AIC criteria one should pick the simpler model as well. 
 
 
 Looking at the BIC.
@@ -507,10 +515,11 @@ cm.SL
 ```
 Confusion Matrix and Statistics
 
-          Reference
-Prediction   0   1
-         0 207   0
-         1   0 180
+         
+|           | Reference 0    | Reference 1   |
+| :---       |    :----:   |          ---: |
+|Prediction 0    | 207       | 0       |
+|Prediction 1     | 0      | 180       |
                                      
                Accuracy : 1          
                  95% CI : (0.9905, 1)
@@ -519,7 +528,7 @@ Prediction   0   1
                                      
                   Kappa : 1          
                                      
- Mcnemar's Test P-Value : NA         
+     Mcnemar's Test P-Value : NA         
                                      
             Sensitivity : 1.0000     
             Specificity : 1.0000     
@@ -527,8 +536,8 @@ Prediction   0   1
          Neg Pred Value : 1.0000     
              Prevalence : 0.5349     
          Detection Rate : 0.5349     
-   Detection Prevalence : 0.5349     
-      Balanced Accuracy : 1.0000     
+     Detection Prevalence : 0.5349     
+        Balanced Accuracy : 1.0000     
                                      
        'Positive' Class : 0   
        
@@ -644,7 +653,7 @@ prop.table(table(train$Risk))
 ```
 The priori in the training set is 0.4436. 
 
-       0         1 
+       0         1   
 0.5674979 0.4325021 
 
 
@@ -659,10 +668,11 @@ nb
 ```
 Example of The conditional probability
 
-   PARA_A
-Y           0         1
-  0 0.6196970 0.3803030
-  1 0.3399602 0.6600398
+  
+ |           | PARA_A 0    | PARA_A 1   |
+| :---       |    :----:   |          ---: |
+|Y 0    | 0.6196970      | 0.3803030     |
+|Y 1     |  0.3399602      | 0.6600398       |
 
 One can see that if a Firm is 1 for PARA_A, then the probability of being classified as a risky firm (Risk=1)
 is 0.66 which is 66%
@@ -678,10 +688,11 @@ confusionMatrix(pred.prob.naive, test$Risk, positive = "1")
 ```
 Confusion Matrix and Statistics
 
-          Reference
-Prediction   0   1
-         0 153  64
-         1  54 116
+|           | Reference 0    | Reference 1   |
+| :---       |    :----:   |          ---: |
+|Prediction 0    | 153      | 64    |
+|Prediction 1     |  54      | 116     |   
+        
                                           
                Accuracy : 0.6951          
                  95% CI : (0.6466, 0.7406)
@@ -690,7 +701,7 @@ Prediction   0   1
                                           
                   Kappa : 0.385           
                                           
- Mcnemar's Test P-Value : 0.4074          
+    Mcnemar's Test P-Value : 0.4074          
                                           
             Sensitivity : 0.6444          
             Specificity : 0.7391          
@@ -698,23 +709,23 @@ Prediction   0   1
          Neg Pred Value : 0.7051          
              Prevalence : 0.4651          
          Detection Rate : 0.2997          
-   Detection Prevalence : 0.4393          
-      Balanced Accuracy : 0.6918          
+     Detection Prevalence : 0.4393          
+       Balanced Accuracy : 0.6918          
                                           
        'Positive' Class : 1 
 
 
 
 
-Evaluating the model performance
-Type 1 Error is classifying a firm as Risk 1, where it is actually Risk 0
-Type 2 Error is classifying a firm as Risk 0, where it is actually Risk 1
+Evaluating the model performance   
+Type 1 Error is classifying a firm as Risk 1, where it is actually Risk 0   
+Type 2 Error is classifying a firm as Risk 0, where it is actually Risk 1   
 
-Type 1 Error    : 54
-Type 2 Error    : 64
-Sensitivity     : 0.6444 
-Specificity     : 0.7391 
-Accuracy        : 0.6951  
+Type 1 Error    : 54   
+Type 2 Error    : 64    
+Sensitivity     : 0.6444    
+Specificity     : 0.7391    
+Accuracy        : 0.6951     
 
 Confusion Matrix: Looking at the Confusion matrix, then the model predicts, 153 Risk 0 correctly and 116 Risk 1 correctly. The model also predicts 64 False 0 (predicted 0 which were actually 1) and 54 false 1 (predicted as 1, but actually 0) - the latter type 1 and type 2 errors
 
