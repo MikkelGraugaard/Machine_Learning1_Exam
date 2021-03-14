@@ -1,5 +1,9 @@
 # Exam from first semester of Machine Learning (Grade: A)
 
+*The exam assignment can be seen in the Exam-flow.Rmd file*
+*The data can be seen in the audit.csv file*
+*The exam questions can be seen in the pdf*
+
 ## Including
   - Transforming variables
   - Exploring the data, distributions etc.
