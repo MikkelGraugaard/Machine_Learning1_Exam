@@ -2,7 +2,7 @@
 
 *The exam assignment can be seen in the [Exam-flow.md](https://github.com/MikkelGraugaard/Machine_Learning1_Exam/blob/master/Exam-flow.md) (normally .rmd)*   
 (*The file's layout changes a bit when not opend in R-Studio as .rmd*)   
-*The data can be seen in the audit2.csv file*  
+*The data can be seen in the [audit2.csv](https://github.com/MikkelGraugaard/Machine_Learning1_Exam/blob/master/audit2.csv) file*  
 *The exam questions can be seen in the [pdf](https://github.com/MikkelGraugaard/Machine_Learning1_Exam/blob/master/ECON_460202E004_Machine%20Learning%20for%20BI%201_v20-21o%20-%20CONVERTED%20INTO%20ONLINE.pdf)*
 
 ## Including
