@@ -1,6 +1,6 @@
 # Exam from first semester of Machine Learning (Grade: A)
 
-*The exam assignment can be seen in the Exam-flow.md (normally .rmd)*   
+*The exam assignment can be seen in the [Exam-flow.md](https://github.com/MikkelGraugaard/Machine_Learning1_Exam/blob/master/Exam-flow.md) (normally .rmd)*   
 (*The file's layout changes a bit when not opend in R-Studio as .rmd*)   
 *The data can be seen in the audit2.csv file*  
 *The exam questions can be seen in the pdf*
