@@ -14,8 +14,13 @@
     - Logistic regression
       - AIC step models
     - LDA and QDA
+    - L1 Regularization
     - Bayesian model averaging
     - Bayes naive classifier
+  - Evaluating Model performance using:
+      - Accuracy, Specificity, Sensitivity
+      - AIC, BIC
+      - AUC
 
 ## Description
 This is my exam from Machine Learning 1 at my first semester of my masters. The exam was a 4-hour exam, where we got a data set and a set of questions to answer.
